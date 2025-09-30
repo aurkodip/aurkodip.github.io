@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Aurkodip Dé</title>
+    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/commons/b/b1/Sun.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <style>
+      html, body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(135deg, #f4f4f9, #e0e7fa);
+        color: #333;
+        margin: 0;
+        padding: 0;
+      }
+
+      h2, h5 {
+        font-weight: 700;
+      }
+
+      .w3-card {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-radius: 15px;
+        overflow: hidden;
+      }
+
+      .w3-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .w3-container {
+        padding: 20px;
+      }
+
+      .w3-indigo {
+        background: linear-gradient(135deg, #4a90e2, #6a5acd) !important;
+      }
+
+      .w3-text-indigo {
+        color: #4a90e2 !important;
+      }
+
+      .w3-light-grey {
+        background-color: #f0f0f0 !important;
+      }
+
+      .w3-round-xlarge {
+        border-radius: 25px !important;
+      }
+
+      footer {
+        padding: 20px;
+        background: linear-gradient(135deg, #4a90e2, #6a5acd);
+        color: white;
+        text-align: center;
+      }
+
+      footer a {
+        color: white;
+        margin: 0 10px;
+        transition: color 0.3s ease, transform 0.3s ease;
+      }
+
+      footer a:hover {
+        color: #ffcc00;
+        transform: scale(1.1);
+      }
+
+      .w3-hover-opacity:hover {
+        opacity: 0.8;
+      }
+
+      .skills-bar {
+        margin-bottom: 15px;
+      }
+
+      .skills-bar div {
+        padding: 5px 10px;
+        font-size: 14px;
+      }
+
+      .languages-bar div {
+        height: 14px;
+      }
+
+      .w3-display-container img {
+        filter: grayscale(50%);
+        transition: filter 0.3s ease, transform 0.3s ease;
+        border-radius: 15px;
+      }
+
+      .w3-display-container img:hover {
+        filter: grayscale(0%);
+        transform: scale(1.05);
+      }
+
+      .w3-tag {
+        background-color: #ffcc00 !important;
+        color: #333 !important;
+        font-weight: bold;
+        padding: 5px 10px;
+        border-radius: 10px;
+      }
+
+      .animated-underline {
+        display: inline-block;
+        position: relative;
+        color: #4a90e2;
+        text-decoration: none;
+      }
+
+      .animated-underline::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 0;
+        background-color: #4a90e2;
+        transition: width 0.3s ease;
+      }
+
+      .animated-underline:hover::after {
+        width: 100%;
+      }
+
+      .section-title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        color: #4a90e2;
+        margin-bottom: 20px;
+        position: relative;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .section-title::after {
+        content: '';
+        width: 60px;
+        height: 4px;
+        background: #4a90e2;
+        display: block;
+        margin: 10px auto 0;
+        border-radius: 2px;
+      }
+
+      hr {
+        margin: 10px 0;
+        padding: 0;
+        border: none;
+        border-top: 1px solid #ccc;
+      }
+
+      .highlight {
+        background: linear-gradient(135deg, #ffcc00, #ff9900);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-weight: bold;
+      }
+
+      .fade-in {
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <!-- Page Container -->
+    <div class="w3-content w3-margin-top fade-in" style="max-width:1400px;">
+
+      <!-- The Grid -->
+      <div class="w3-row-padding">
+
+        <!-- Left Column -->
+        <div class="w3-third">
+          <div class="w3-white w3-text-grey w3-card">
+            <div class="w3-display-container">
+              <img src="image.jpg" style="width:100%;" alt="Avatar">
+            </div>
+            <div class="w3-container">
+              <h2 style="padding: 5px; margin-top: 10px; border-radius: 10px;">Aurkodip Dé</h2>
+              <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-indigo"></i>Cyber-artisan | Sustainability Enthusiast</p>
+              <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-indigo"></i>Greater Kolkata, WB</p>
+              <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-indigo"></i>aurkodip@zohomail.in</p>
+              
+
+              <!-- Download Buttons -->
+              <div style="text-align: center; margin-bottom: 20px;">
+                <a href="https://drive.google.com/file/d/1Ky52qDNCn5f-Tyw7OciR-Z_c4l-tZogd/view?usp=sharing" download class="w3-button w3-indigo w3-round-large w3-hover-shadow" style="margin-right: 10px;">
+                  <i class="fa fa-download"></i> Download CV
+                </a>
+                <a href="https://www.upload-apk.com/xlKEXFI6tqC8Kt7" download class="w3-button w3-indigo w3-round-large w3-hover-shadow">
+                  <i class="fa fa-android"></i> Download APK
+                </a>
+              </div>
+              <hr>
+
+              <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-indigo"></i>Skills</b></p>
+              <div class="skills-bar">
+                <p>Programming Languages</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:80%">Python | Dart | C# | Kotlin | Go | ABAP</div>
+                </div>
+              </div>
+              <div class="skills-bar">
+                <p>Flutter</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:90%">UI/UX | Getx | Bloc | Riverpod | Flutterflow</div>
+                </div>
+              </div>
+              <div class="skills-bar">
+                <p>Backend</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:90%">Flask | Django | FastAPI | SQL | GraphQL</div>
+                </div>
+              </div>
+              <div class="skills-bar">
+                <p>Data Science</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:75%">Excel | Power BI | Python libraries | ML</div>
+                </div>
+              </div>
+              <div class="skills-bar">
+                <p>DevOps</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-container w3-center w3-round-xlarge w3-indigo" style="width:75%">AWS | Azure | GCP | Linux | Git | Bash</div>
+                </div>
+              </div>
+              <br>
+              <hr>
+              <p class="w3-large"><b><i class="fa fa-globe fa-fw w3-margin-right w3-text-indigo"></i>Languages</b></p>
+              <div class="languages-bar">
+                <p>English</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-round-xlarge w3-indigo" style="width:90%"></div>
+                </div>
+              </div>
+              <div class="languages-bar">
+                <p>বাংলা (Bengali)</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-round-xlarge w3-indigo" style="width:95%"></div>
+                </div>
+              </div>
+              <div class="languages-bar">
+                <p>हिंदी - اُردُو (Hindi - Urdu)</p>
+                <div class="w3-light-grey w3-round-xlarge">
+                  <div class="w3-round-xlarge w3-indigo" style="width:80%"></div>
+                </div>
+              </div>
+              
+              <br>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="w3-twothird">
+          
+            
+          </div>
+          <!-- Work Experience Section -->
+          <div class="w3-container w3-card w3-white w3-margin-bottom">
+            <h2 class="section-title"><i class="fa fa-suitcase fa-fw w3-margin-right"></i>Work Experience</h2>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Independent Consultant</b></h5>
+              <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Dec 2017 - Present</h6>
+              <p>Provided end-to-end technical solutions across multiple domains, including application development, SAP consulting, game prototyping, and web development. Key contributions include:</p>
+              <ul>
+                <li><b>Application Development:</b> Designed and developed cross-platform mobile applications using Flutter, leveraging state management solutions like GetX, Bloc, and Riverpod. Integrated RESTful APIs, Firebase, and GraphQL for real-time data synchronization and backend communication.</li>
+                <li><b>SAP Implementation and Support:</b> Delivered SAP MM, EHS, and MII solutions, including custom ABAP development, workflow automation, and real-time data integration. Conducted system configuration, data migration, and end-user training for a smooth SAP adoption.</li>
+                <li><b>Simulation & Game Prototyping:</b> Developed interactive simulations and game prototypes using Unity and C#. Implemented physics-based mechanics.</li>
+                <li><b>Web Development:</b> Built and customized e-commerce websites using WordPress and Shopify. Implemented custom themes, plugins, and payment gateway integrations to meet client-specific requirements.</li>
+                <li><b>Technical Writing & Training:</b> Authored technical documentation, user manuals, and training materials for software solutions. Conducted training sessions on various Technologies.</li>
+              </ul>
+              
+              <hr>
+            </div>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>SAP Techno-Functional Consultant / Accenture</b></h5>
+              <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Jan 2015 - Nov 2017</h6>
+              <p>Experienced in SAP MM, EHS, ABAP and MII modules within power and manufacturing industries, specializing in procurement optimization, inventory management, regulatory compliance, and real-time operational intelligence through automation and analytics-driven solutions.
+
+              </p>
+              <br>
+            </div>
+          </div>
+
+          <!-- Education Section -->
+        <div class="w3-container w3-card w3-white" style="border-radius: 15px;">
+            <h2 class="section-title"><i class="fa fa-graduation-cap fa-fw w3-margin-right"></i>Education</h2>
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Indian Statistical Institute</b></h5>
+              <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2024 - 25</h6>
+              <p><b>Post Graduate Diploma in Agricultural and Rural Management with Statistical Methods and Analytics</b></p>
+              <p>Modules include Agricultural Farm Management, Natural Resource Management, Qualitative (Participatory Rural Appraisal), Quantitative (AHP, ANP) & Statistical (Design of Experiments, Hypothesis testing) methods, Data Analytics and Machine Learning</p>
+            </div>         
+            
+            <div class="w3-container">
+              <h5 class="w3-opacity"><b>Bengal Institute of Technology</b></h5>
+              <h6 class="w3-text-indigo"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010 - 2014</h6>
+              <p><b>Bachelor of Technology in Information Technology</b></p>
+              <p>Modules include Programming (C, Java), Web development (J2EE), Data Structures & Algorithms </p>              
+              <br>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>Connect with me:</p>
+      <a href="https://www.linkedin.com/in/aurkodip/" target="_blank">
+        <i class="fa fa-linkedin w3-hover-opacity" style="font-size: 40px;"></i>
+      </a>
+      <a href="https://github.com/aurkodip/aurkodiphome" target="_blank">
+        <i class="fa fa-github w3-hover-opacity" style="font-size: 40px;"></i>
+      </a>
+      <a href="https://x.com/aurkodipx" target="_blank">
+        <i class="fa fa-twitter w3-hover-opacity" style="font-size: 40px;"></i>
+      </a>
+      <a href="https://www.t.me/aurkodip/" target="_blank">
+        <i class="fa fa-telegram w3-hover-opacity" style="font-size: 40px;"></i>
+      </a>
+    </footer>
+  </body>
+</html>
+
