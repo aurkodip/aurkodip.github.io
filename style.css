@@ -919,7 +919,7 @@ footer .accent {
     gap: 1.5rem;
   }
 
-  #hero {
+  #home {
     grid-template-columns: 1fr;
     padding: 7rem 2rem 3rem;
     gap: 3rem;
@@ -971,7 +971,7 @@ footer .accent {
     grid-template-columns: 1fr;
   }
 
-  #hero {
+  #home {
     padding: 6rem 1.5rem 3rem;
   }
 
