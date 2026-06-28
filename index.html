@@ -22,13 +22,28 @@
   <!-- NAV -->
   <nav>
     <div class="nav-logo">Arkadip<em style="color:var(--muted);font-style:normal;">.</em></div>
+    <div class="lang-selector">
+      <button class="lang-btn" id="langBtn" aria-label="Select Language">
+        <span class="lang-globe">🌐</span>
+        <span class="lang-current" id="langCurrent">EN</span>
+        <span class="lang-arrow">▼</span>
+      </button>
+      <ul class="lang-dropdown" id="langDropdown">
+        <li><button data-lang="en" class="lang-opt active">EN</button></li>
+        <li><button data-lang="de" class="lang-opt">DE</button></li>
+        <li><button data-lang="fr" class="lang-opt">FR</button></li>
+        <li><button data-lang="es" class="lang-opt">ES</button></li>
+        <li><button data-lang="zh" class="lang-opt">ZH</button></li>
+        <li><button data-lang="ja" class="lang-opt">JA</button></li>
+        <li><button data-lang="ko" class="lang-opt">KO</button></li>
+      </ul>
+    </div>
     <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#home" data-i18n="nav_home">Home</a></li>
+      <li><a href="#skills" data-i18n="nav_skills">Skills</a></li>
+      <li><a href="#experience" data-i18n="nav_experience">Experience</a></li>
+      <li><a href="#education" data-i18n="nav_education">Education</a></li>
+      <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
     </ul>
   </nav>
 
@@ -44,24 +59,23 @@
     <div class="hero-left">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        Available for opportunities
+        <span data-i18n="hero_badge">Available for opportunities</span>
       </div>
       <div class="hero-photo"><img
           src="data:image/jpeg;base64,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"
           alt="Arkadip Dey"></div>
       <h1 class="hero-name">Aurkodip Dé</h1>
-      <p class="hero-title">Digital Solutions Architect &nbsp;·&nbsp; Greater Kolkata, WB, India</p>
-      <p class="hero-desc">
-        Binary Artisan, passionate about crafting intelligent digital experiences. From enterprise systems and agile
-        startup
+      <p class="hero-title" data-i18n="hero_title">Digital Solutions Architect &nbsp;·&nbsp; Greater Kolkata, WB, India</p>
+      <p class="hero-desc" data-i18n="hero_desc">
+        Binary Artisan, passionate about crafting intelligent digital experiences. From enterprise systems and agile startup
         apps to purpose-driven community platforms, I engineer digital solutions that solve real-world problems.
       </p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary">
-          <span>↗</span> Get in Touch
+          <span>↗</span> <span data-i18n="hero_cta_contact">Get in Touch</span>
         </a>
         <a href="#experience" class="btn-outline">
-          <span>↓</span> View Work
+          <span>↓</span> <span data-i18n="hero_cta_work">View Work</span>
         </a>
       </div>
     </div>
@@ -71,19 +85,19 @@
         <div class="stat-grid">
           <div class="stat-box">
             <div class="stat-num">10+</div>
-            <div class="stat-desc">Years in tech</div>
+            <div class="stat-desc" data-i18n="stat_years">Years in tech</div>
           </div>
           <div class="stat-box">
             <div class="stat-num">4+</div>
-            <div class="stat-desc">Domains mastered</div>
+            <div class="stat-desc" data-i18n="stat_domains">Domains mastered</div>
           </div>
           <div class="stat-box">
             <div class="stat-num">ISI</div>
-            <div class="stat-desc">PG Analytics</div>
+            <div class="stat-desc" data-i18n="stat_isi">PG Analytics</div>
           </div>
           <div class="stat-box">
             <div class="stat-num">BTech</div>
-            <div class="stat-desc">IT, BIT Kolkata</div>
+            <div class="stat-desc" data-i18n="stat_btech">IT, BIT Kolkata</div>
           </div>
         </div>
         <div class="skill-chips">
@@ -109,13 +123,13 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="section-header reveal">
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title" data-i18n="section_skills">Skills</h2>
       <div class="section-line"></div>
     </div>
     <div class="skills-grid">
       <div class="skill-card reveal">
         <div class="sk-icon">📱</div>
-        <div class="sk-title">Flutter & Mobile</div>
+        <div class="sk-title" data-i18n="skill_title_flutter">Flutter & Mobile</div>
         <div class="sk-tags">
           <span class="sk-tag">Flutter</span>
           <span class="sk-tag">Dart</span>
@@ -130,7 +144,7 @@
       </div>
       <div class="skill-card purple-accent reveal">
         <div class="sk-icon">🐍</div>
-        <div class="sk-title">Backend & Database</div>
+        <div class="sk-title" data-i18n="skill_title_backend">Backend & Database</div>
         <div class="sk-tags">
 
 
@@ -144,7 +158,7 @@
       </div>
       <div class="skill-card orange-accent reveal">
         <div class="sk-icon">🤖</div>
-        <div class="sk-title">AI & Machine Learning</div>
+        <div class="sk-title" data-i18n="skill_title_ai">AI & Machine Learning</div>
         <div class="sk-tags">
           <span class="sk-tag">TensorFlow</span>
           <span class="sk-tag">Keras</span>
@@ -157,7 +171,7 @@
       </div>
       <div class="skill-card reveal">
         <div class="sk-icon">📊</div>
-        <div class="sk-title">Data Science</div>
+        <div class="sk-title" data-i18n="skill_title_datascience">Data Science</div>
         <div class="sk-tags">
           <span class="sk-tag">NumPy</span>
           <span class="sk-tag">Pandas</span>
@@ -170,7 +184,7 @@
       </div>
       <div class="skill-card purple-accent reveal">
         <div class="sk-icon">🏢</div>
-        <div class="sk-title">SAP & Enterprise</div>
+        <div class="sk-title" data-i18n="skill_title_sap">SAP & Enterprise</div>
         <div class="sk-tags">
           <span class="sk-tag">SAP ABAP</span>
           <span class="sk-tag">SAP Mobile</span>
@@ -183,7 +197,7 @@
       </div>
       <div class="skill-card orange-accent reveal">
         <div class="sk-icon">☁️</div>
-        <div class="sk-title">Cloud & Infrastructure</div>
+        <div class="sk-title" data-i18n="skill_title_cloud">Cloud & Infrastructure</div>
         <div class="sk-tags">
           <span class="sk-tag">AWS</span>
           <span class="sk-tag">Azure</span>
@@ -201,47 +215,47 @@
   <section id="experience">
     <div class="grid-deco"></div>
     <div class="section-header reveal">
-      <h2 class="section-title">Experience</h2>
+      <h2 class="section-title" data-i18n="section_experience">Experience</h2>
       <div class="section-line"></div>
     </div>
     <div class="timeline">
       <div class="timeline-item reveal">
         <div class="tl-meta">
-          <span class="tl-date">Dec 2025 — Present</span>
+          <span class="tl-date" data-i18n="exp_date_1">Dec 2025 — Present</span>
           <span class="tl-company">Binary Brush Labs</span>
         </div>
-        <div class="tl-role">Flutter Developer</div>
-        <p class="tl-desc">Building cross-platform mobile and desktop applications with Flutter, crafting intelligent
+        <div class="tl-role" data-i18n="exp_role_1">Flutter Developer</div>
+        <p class="tl-desc" data-i18n="exp_desc_1">Building cross-platform mobile and desktop applications with Flutter, crafting intelligent
           user experiences and integrating modern backend services. Focused on delivering production-ready apps with
           clean architecture and exceptional UX.</p>
       </div>
       <div class="timeline-item reveal">
         <div class="tl-meta">
-          <span class="tl-date">Jul 2021 — Nov 2025 · 4 yrs 5 mos</span>
-          <span class="tl-company">Freelance</span>
+          <span class="tl-date" data-i18n="exp_date_2">Jul 2021 — Nov 2025 · 4 yrs 5 mos</span>
+          <span class="tl-company" data-i18n="exp_company_2">Freelance</span>
         </div>
-        <div class="tl-role">IT Consultant & Subject Matter Expert</div>
-        <p class="tl-desc">Provided specialized IT consulting across enterprise and startup clients. Delivered
+        <div class="tl-role" data-i18n="exp_role_2">IT Consultant & Subject Matter Expert</div>
+        <p class="tl-desc" data-i18n="exp_desc_2">Provided specialized IT consulting across enterprise and startup clients. Delivered
           end-to-end solutions spanning full-stack development, AI/ML integration, ERP advisory, and cloud architecture.
           Cultivated expertise in Flutter and data science during this period.</p>
       </div>
       <div class="timeline-item reveal">
         <div class="tl-meta">
-          <span class="tl-date">Jan 2018 — Mar 2021 · 3 yrs 3 mos</span>
-          <span class="tl-company">Freelance</span>
+          <span class="tl-date" data-i18n="exp_date_3">Jan 2018 — Mar 2021 · 3 yrs 3 mos</span>
+          <span class="tl-company" data-i18n="exp_company_3">Freelance</span>
         </div>
-        <div class="tl-role">SAP Consultant</div>
-        <p class="tl-desc">Independent SAP consulting covering implementation, customization, and optimization of SAP
+        <div class="tl-role" data-i18n="exp_role_3">SAP Consultant</div>
+        <p class="tl-desc" data-i18n="exp_desc_3">Independent SAP consulting covering implementation, customization, and optimization of SAP
           landscapes. Specialized in ABAP development, SAP Mobile, and functional modules (MM, EHS) for enterprise
           clients across industries.</p>
       </div>
       <div class="timeline-item reveal">
         <div class="tl-meta">
-          <span class="tl-date">Jan 2015 — Nov 2017 · 2 yrs 11 mos</span>
+          <span class="tl-date" data-i18n="exp_date_4">Jan 2015 — Nov 2017 · 2 yrs 11 mos</span>
           <span class="tl-company">Accenture</span>
         </div>
-        <div class="tl-role">SAP Techno-Functional Consultant</div>
-        <p class="tl-desc">Delivered SAP techno-functional consulting at Accenture, bridging technical ABAP development
+        <div class="tl-role" data-i18n="exp_role_4">SAP Techno-Functional Consultant</div>
+        <p class="tl-desc" data-i18n="exp_desc_4">Delivered SAP techno-functional consulting at Accenture, bridging technical ABAP development
           with functional module expertise. Worked on large-scale enterprise implementations, deepening skills in
           systems thinking, stakeholder management, and enterprise-grade delivery.</p>
       </div>
@@ -251,23 +265,23 @@
   <!-- EDUCATION -->
   <section id="education">
     <div class="section-header reveal">
-      <h2 class="section-title">Education</h2>
+      <h2 class="section-title" data-i18n="section_education">Education</h2>
       <div class="section-line"></div>
     </div>
     <div class="edu-grid">
       <div class="edu-card reveal">
         <div class="edu-year">ISI</div>
-        <div class="edu-badge">Postgraduate</div>
-        <div class="edu-degree">Statistical Methods &amp; Analytics</div>
-        <div class="edu-institution">Indian Statistical Institute, Kolkata</div>
-        <div class="edu-period">July 2024 — July 2025</div>
+        <div class="edu-badge" data-i18n="edu_badge_1">Postgraduate</div>
+        <div class="edu-degree" data-i18n="edu_degree_1">Statistical Methods &amp; Analytics</div>
+        <div class="edu-institution" data-i18n="edu_institution_1">Indian Statistical Institute, Kolkata</div>
+        <div class="edu-period" data-i18n="edu_period_1">July 2024 — July 2025</div>
       </div>
       <div class="edu-card reveal">
         <div class="edu-year">BIT</div>
-        <div class="edu-badge">Undergraduate</div>
-        <div class="edu-degree">Bachelor of Technology — Information Technology</div>
-        <div class="edu-institution">Bengal Institute of Technology, Kolkata</div>
-        <div class="edu-period">2010 — 2014</div>
+        <div class="edu-badge" data-i18n="edu_badge_2">Undergraduate</div>
+        <div class="edu-degree" data-i18n="edu_degree_2">Bachelor of Technology — Information Technology</div>
+        <div class="edu-institution" data-i18n="edu_institution_2">Bengal Institute of Technology, Kolkata</div>
+        <div class="edu-period" data-i18n="edu_period_2">2010 — 2014</div>
       </div>
     </div>
   </section>
@@ -277,8 +291,8 @@
     <div class="orb orb-1" style="opacity:0.06;"></div>
     <div class="grid-deco"></div>
     <div class="contact-inner">
-      <h2 class="contact-tagline reveal">Let's build something <em>remarkable.</em></h2>
-      <p class="contact-sub reveal">
+      <h2 class="contact-tagline reveal" data-i18n="contact_tagline">Let's build something <em>remarkable.</em></h2>
+      <p class="contact-sub reveal" data-i18n="contact_sub">
         Open to Flutter & Android developer roles, AI-powered product builds, and technical consulting engagements. If
         you have an
         interesting problem, let's talk.
@@ -287,7 +301,7 @@
         <a href="mailto:aurkodip@proton.me" class="contact-link">
           ✉ aurkodip@proton.me
         </a>
-        <a href="https://www.linkedin.com/in/arkadip-dey" target="_blank" rel="noopener" class="contact-link">
+        <a href="https://www.linkedin.com/in/arkadip-dey" target="_blank" rel="noopener" class="contact-link" data-i18n="contact_linkedin">
           ↗ LinkedIn Profile
         </a>
       </div>
@@ -296,8 +310,8 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 <span class="accent">Arkadip Dey</span> · Kolkata, India</p>
-    <p>Flutter Developer · AI Engineer · Enterprise Consultant</p>
+    <p>© 2025 <span class="accent">Arkadip Dey</span> · <span data-i18n="footer_location">Kolkata, India</span></p>
+    <p data-i18n="footer_desc">Flutter Developer · AI Engineer · Enterprise Consultant</p>
   </footer>
 
   <script src="script.js" defer></script>
