@@ -17,73 +17,6 @@ reveals.forEach((el, i) => {
 });
 
 
-// Interactive Project Scope Configurator (Segmented Controls)
-const groupPlatform = document.getElementById('groupPlatform');
-const groupScope = document.getElementById('groupScope');
-const groupTimeline = document.getElementById('groupTimeline');
-const btnEmailScope = document.getElementById('btnEmailScope');
-const btnWhatsAppScope = document.getElementById('btnWhatsAppScope');
-const estimatorSummaryText = document.getElementById('estimatorSummaryText');
-
-let selectedPlatform = 'iOS & Android (Flutter)';
-let selectedScope = '0-to-1 MVP Build';
-let selectedTimeline = 'Immediate (< 1 Month)';
-
-function setupSegmentGroup(container, onSelect) {
-  if (!container) return;
-  const segments = container.querySelectorAll('.segment-btn');
-  segments.forEach(seg => {
-    seg.addEventListener('click', () => {
-      segments.forEach(s => s.classList.remove('active'));
-      seg.classList.add('active');
-      onSelect(seg.getAttribute('data-value'));
-      updateEstimatorBlueprint();
-    });
-  });
-}
-
-function updateEstimatorBlueprint() {
-  if (estimatorSummaryText) {
-    estimatorSummaryText.innerHTML = `Target: <strong>${selectedPlatform}</strong> · Scope: <strong>${selectedScope}</strong> · Horizon: <strong>${selectedTimeline}</strong>`;
-  }
-
-  const subject = encodeURIComponent(`Mobile Architecture Inquiry: ${selectedPlatform}`);
-  const body = encodeURIComponent(
-`Hi Aurkodip,
-
-I'm reaching out to discuss engineering a mobile application.
-
-Project Specifications:
-• Target Ecosystem: ${selectedPlatform}
-• Engagement Scope: ${selectedScope}
-• Delivery Horizon: ${selectedTimeline}
-
-Let's schedule a discovery call to discuss technical architecture, milestone deliverables, and availability.
-
-Best regards,`
-  );
-
-  if (btnEmailScope) {
-    btnEmailScope.href = `mailto:aurkodip@zohomail.in?subject=${subject}&body=${body}`;
-  }
-
-  const waText = encodeURIComponent(
-`Hi Aurkodip! I'd like to discuss a mobile project:
-• Target: ${selectedPlatform}
-• Scope: ${selectedScope}
-• Horizon: ${selectedTimeline}
-Let's connect!`
-  );
-
-  if (btnWhatsAppScope) {
-    btnWhatsAppScope.href = `https://api.whatsapp.com/send?text=${waText}`;
-  }
-}
-
-setupSegmentGroup(groupPlatform, val => { selectedPlatform = val; });
-setupSegmentGroup(groupScope, val => { selectedScope = val; });
-setupSegmentGroup(groupTimeline, val => { selectedTimeline = val; });
-updateEstimatorBlueprint();
 
 // Translation Data
 const translations = {
@@ -94,30 +27,31 @@ const translations = {
     nav_experience: "Experience",
     nav_skills: "Stack",
     nav_book_call: "Start a Project",
-    hero_badge: "Available for Projects · Global Remote",
-    hero_headline: "Engineering Production-Grade Mobile Apps for Startups & Enterprises.",
-    hero_desc: "Specializing in <strong>Flutter</strong> and native <strong>Android (Kotlin & Jetpack Compose)</strong>. I partner with founders, venture studios, and tech leaders to design, build, and deploy fluid, high-performance mobile products with clean architecture and scalable cloud backends.",
+    hero_badge: "Available for Engagements · Kolkata, IN / Global Remote",
+    hero_headline: "Engineering Mission-Critical Mobile Systems, Enterprise Solutions &amp; Intelligent Products",
+    hero_desc: "Mobile solutions architect (Kotlin, KMP, Flutter) with expertise in Spring Boot &amp; FastAPI backend engineering. Bringing 12+ years of technical depth spanning native <strong>Android (Kotlin &amp; Jetpack Compose)</strong>, <strong>Flutter</strong>, <strong>Backend</strong>, <strong>Cloud</strong>, and enterprise <strong>SAP consulting</strong>.",
     hero_cta_contact: "Schedule Discovery Call",
     hero_cta_work: "View Featured Apps",
     section_work: "Featured Mobile Work",
-    section_services: "Solutions & Engineering Capabilities",
-    section_skills: "Technical Stack & Toolkit",
-    skill_title_flutter: "Mobile — Flutter / Dart",
-    skill_title_android: "Mobile — Android / Kotlin (Native)",
-    skill_title_hardware: "Hardware & Sensors",
-    skill_title_backend: "Backend & Automation",
-    skill_title_payments: "Payments, Integrations & Web",
-    skill_title_practices: "Engineering Practices & Delivery",
-    section_experience: "Experience & Trajectory",
+    section_services: "Solutions &amp; Engineering Capabilities",
+    section_skills: "Technical Stack &amp; Toolkit",
+    skill_title_flutter: "Android (Kotlin) &amp; Flutter Mobile",
+    skill_title_ai: "AI &amp; Machine Learning",
+    skill_title_datascience: "Data Science &amp; Statistical Analytics",
+    skill_title_backend: "Backend, APIs &amp; Cloud",
+    skill_title_sap: "SAP &amp; Enterprise Architecture",
+    skill_title_practices: "Engineering Practices &amp; Delivery",
+    section_experience: "Experience &amp; Trajectory",
     exp_date_1: "Jul 2021 — Present",
     exp_company_1: "Freelance",
-    exp_role_1: "Mobile Developer & IT Consultant",
-    exp_desc_1: "Delivering specialized IT consulting and production-ready applications for startups and enterprise clients. Engineering mobile and cross-platform solutions with Flutter and Android (Jetpack Compose) featuring clean architecture and exceptional UX, alongside delivering end-to-end solutions in AI/ML integration, full-stack development, and cloud architecture.",
+    exp_role_1: "Senior Mobile Engineer &amp; IT Consultant",
+    exp_desc_1: "Delivering specialized mobile engineering and solutions consulting for startups and enterprise clients. Primary focus on high-performance native Android applications with Kotlin and Jetpack Compose, secondary cross-platform delivery with Flutter, and robust backend microservices with Spring Boot and cloud architectures.",
     exp_date_2: "Jan 2018 — Mar 2021 · 3 yrs 3 mos",
     exp_company_2: "Freelance",
     exp_role_2: "SAP Consultant",
     exp_desc_2: "Independent SAP consulting covering implementation, customization, and optimization of SAP landscapes. Specialized in ABAP development, SAP Mobile, and functional modules (MM, EHS) for enterprise clients across industries.",
     exp_date_3: "Jan 2015 — Nov 2017 · 2 yrs 11 mos",
+    exp_company_3: "Accenture",
     exp_role_3: "SAP Techno-Functional Consultant",
     exp_desc_3: "Delivered SAP techno-functional consulting at Accenture, bridging technical ABAP development with functional module expertise. Worked on large-scale enterprise implementations, deepening skills in systems thinking, stakeholder management, and enterprise-grade delivery.",
     section_education: "Academic Pedigree",
@@ -130,10 +64,10 @@ const translations = {
     edu_institution_2: "Bengal Institute of Technology, Kolkata",
     edu_period_2: "2010 — 2014",
     contact_tagline: "Have an app idea? Let's engineer something <em>remarkable.</em>",
-    contact_sub: "Select your requirements below to instantly format a project brief, or reach out directly for availability.",
+    contact_sub: "Available for fractional mobile leadership, 0-to-1 MVP builds, and technical architecture advisory. Direct senior collaboration with zero agency overhead.",
     contact_linkedin: "↗ LinkedIn Profile",
     footer_location: "Kolkata, India · Available Worldwide",
-    footer_desc: "Senior Mobile Engineer · Flutter & Android Specialist · Enterprise Solutions Architect"
+    footer_desc: "Solutions Architect | Kotlin · Spring · Flutter · Python · ERP"
   },
   de: {
     nav_work: "Projekte",
@@ -143,45 +77,46 @@ const translations = {
     nav_skills: "Stack",
     nav_book_call: "Projekt starten",
     hero_badge: "Verfügbar für Projekte · Remote",
-    hero_headline: "Entwicklung produktionsreifer mobiler Apps für Startups & Unternehmen.",
-    hero_desc: "Spezialisiert auf <strong>Flutter</strong> und natives <strong>Android (Kotlin & Jetpack Compose)</strong>. Ich baue hochperformante mobile Produkte mit sauberer Architektur und skalierbaren Backends.",
+    hero_headline: "Entwicklung unternehmenskritischer mobiler Systeme, Unternehmenslösungen &amp; intelligenter Produkte",
+    hero_desc: "Mobile Solutions Architect (Kotlin, KMP, Flutter) mit Expertise in Spring Boot &amp; FastAPI Backend-Engineering. Über 12 Jahre technische Tiefe in nativem <strong>Android (Kotlin &amp; Jetpack Compose)</strong>, <strong>Flutter</strong>, <strong>Backend</strong>, <strong>Cloud</strong> und Enterprise-<strong>SAP-Beratung</strong>.",
     hero_cta_contact: "Erstgespräch buchen",
     hero_cta_work: "Projekte ansehen",
     section_work: "Ausgewählte Mobile Apps",
-    section_services: "Lösungen & Fähigkeiten",
-    section_skills: "Technologie-Stack",
-    skill_title_flutter: "Mobile — Flutter / Dart",
-    skill_title_android: "Mobile — Android / Kotlin (Nativ)",
-    skill_title_hardware: "Hardware & Sensoren",
-    skill_title_backend: "Backend & Automatisierung",
-    skill_title_payments: "Zahlungen, Integrationen & Web",
-    skill_title_practices: "Engineering-Praktiken & Delivery",
-    section_experience: "Erfahrung",
+    section_services: "Lösungen &amp; Fähigkeiten",
+    section_skills: "Technologie-Stack &amp; Toolkit",
+    skill_title_flutter: "Android (Kotlin) &amp; Flutter Mobile",
+    skill_title_ai: "KI &amp; Maschinelles Lernen",
+    skill_title_datascience: "Data Science &amp; Statistische Analytik",
+    skill_title_backend: "Backend, APIs &amp; Cloud",
+    skill_title_sap: "SAP &amp; Unternehmensarchitektur",
+    skill_title_practices: "Engineering-Praktiken &amp; Delivery",
+    section_experience: "Erfahrung &amp; Werdegang",
     exp_date_1: "Jul 2021 — Heute",
     exp_company_1: "Freiberuflich",
-    exp_role_1: "Mobile-Entwickler & IT-Berater",
-    exp_desc_1: "Spezialisierte IT-Beratung und produktionsreife Anwendungen für Startups und Unternehmenskunden. Entwicklung von Mobil- und plattformübergreifenden Lösungen mit Flutter und Android (Jetpack Compose) mit sauberer Architektur und herausragender UX.",
+    exp_role_1: "Senior Mobile-Entwickler &amp; IT-Berater",
+    exp_desc_1: "Spezialisierte IT-Beratung und mobile Entwicklung für Startups und Unternehmenskunden. Fokus auf native Android-Entwicklung mit Kotlin und Jetpack Compose, plattformübergreifende Lösungen mit Flutter sowie Spring Boot Backend-Microservices.",
     exp_date_2: "Jan 2018 — Mär 2021 · 3 J. 3 M.",
     exp_company_2: "Freiberuflich",
     exp_role_2: "SAP-Berater",
-    exp_desc_2: "Unabhängige SAP-Beratung für die Implementierung, Anpassung und Optimierung von SAP-Systemlandschaften.",
+    exp_desc_2: "Unabhängige SAP-Beratung für die Implementierung, Anpassung und Optimierung von SAP-Systemlandschaften. Spezialisiert auf ABAP, SAP Mobile und Module MM &amp; EHS.",
     exp_date_3: "Jan 2015 — Nov 2017 · 2 J. 11 M.",
+    exp_company_3: "Accenture",
     exp_role_3: "Techno-funktionaler SAP-Berater",
     exp_desc_3: "Techno-funktionale SAP-Beratung bei Accenture, die technische ABAP-Entwicklung mit funktionaler Modulexpertise verknüpft.",
     section_education: "Ausbildung",
     edu_badge_1: "Postgraduiert",
-    edu_degree_1: "Statistische Methoden & Analytik",
+    edu_degree_1: "Statistische Methoden &amp; Analytik",
     edu_institution_1: "Indian Statistical Institute, Kolkata",
     edu_period_1: "Juli 2024 — Juli 2025",
     edu_badge_2: "Erststudium",
     edu_degree_2: "Bachelor of Technology — Informationstechnologie",
     edu_institution_2: "Bengal Institute of Technology, Kolkata",
     edu_period_2: "2010 — 2014",
-    contact_tagline: "Lassen Sie uns etwas <em>Außergewöhnliches</em> aufbauen.",
-    contact_sub: "Wählen Sie unten Ihre Anforderungen aus oder kontaktieren Sie mich direkt.",
+    contact_tagline: "Haben Sie eine Projektidee? Lassen Sie uns etwas <em>Außergewöhnliches</em> aufbauen.",
+    contact_sub: "Verfügbar für fraktionierte Führung, 0-to-1 MVP-Entwicklung und technische Architekturberatung.",
     contact_linkedin: "↗ LinkedIn Profil",
     footer_location: "Kolkata, Indien · Weltweit verfügbar",
-    footer_desc: "Senior Mobile Engineer · Flutter & Android Spezialist · Enterprise Consultant"
+    footer_desc: "Solutions Architect | Kotlin · Spring · Flutter · Python · ERP"
   },
   fr: {
     nav_work: "Projets",
@@ -191,45 +126,46 @@ const translations = {
     nav_skills: "Stack",
     nav_book_call: "Démarrer un projet",
     hero_badge: "Disponible pour projets · Télétravail",
-    hero_headline: "Développement d'applications mobiles de production pour startups et entreprises.",
-    hero_desc: "Spécialisé en <strong>Flutter</strong> et <strong>Android natif (Kotlin & Jetpack Compose)</strong>. Conception et déploiement de produits mobiles haute performance avec architecture propre et backends cloud scalables.",
+    hero_headline: "Ingénierie de systèmes mobiles critiques, solutions d'entreprise &amp; produits intelligents",
+    hero_desc: "Architecte de solutions mobiles (Kotlin, KMP, Flutter) avec expertise en ingénierie backend Spring Boot &amp; FastAPI. Plus de 12 ans de profondeur technique couvrant <strong>Android natif (Kotlin &amp; Jetpack Compose)</strong>, <strong>Flutter</strong>, <strong>Backend</strong>, <strong>Cloud</strong> et conseil <strong>SAP d'entreprise</strong>.",
     hero_cta_contact: "Planifier un échange",
     hero_cta_work: "Découvrir mes apps",
     section_work: "Applications Récentes",
-    section_services: "Solutions & Capacités",
-    section_skills: "Stack Technique",
-    skill_title_flutter: "Mobile — Flutter / Dart",
-    skill_title_android: "Mobile — Android / Kotlin (Natif)",
-    skill_title_hardware: "Matériel & Capteurs",
-    skill_title_backend: "Backend & Automatisation",
-    skill_title_payments: "Paiements, Intégrations & Web",
-    skill_title_practices: "Pratiques d'Ingénierie & Livraison",
-    section_experience: "Expérience",
+    section_services: "Solutions &amp; Capacités d'Ingénierie",
+    section_skills: "Stack Technique &amp; Outils",
+    skill_title_flutter: "Android (Kotlin) &amp; Flutter Mobile",
+    skill_title_ai: "IA &amp; Machine Learning",
+    skill_title_datascience: "Data Science &amp; Analyse Statistique",
+    skill_title_backend: "Backend, APIs &amp; Cloud",
+    skill_title_sap: "SAP &amp; Architecture d'Entreprise",
+    skill_title_practices: "Pratiques d'Ingénierie &amp; Livraison",
+    section_experience: "Expérience &amp; Parcours",
     exp_date_1: "Juil 2021 — Présent",
     exp_company_1: "Indépendant",
-    exp_role_1: "Développeur Mobile & Consultant IT",
-    exp_desc_1: "Conseil IT spécialisé et conception d'applications de production pour startups et grandes entreprises. Ingénierie de solutions mobiles avec Flutter et Android (Jetpack Compose).",
+    exp_role_1: "Ingénieur Mobile Senior &amp; Consultant IT",
+    exp_desc_1: "Conseil en ingénierie mobile pour startups et grandes entreprises. Priorité sur le développement Android natif haute performance avec Kotlin et Jetpack Compose, solutions multiplateformes avec Flutter et microservices backend Spring Boot.",
     exp_date_2: "Janv 2018 — Mars 2021 · 3 ans 3 mo.",
     exp_company_2: "Indépendant",
     exp_role_2: "Consultant SAP",
-    exp_desc_2: "Conseil SAP indépendant englobant l'implémentation, la personnalisation et l'optimisation des architectures SAP.",
+    exp_desc_2: "Conseil SAP indépendant englobant l'implémentation, la personnalisation et l'optimisation des architectures SAP. Spécialisé en développement ABAP, SAP Mobile et modules MM &amp; EHS.",
     exp_date_3: "Janv 2015 — Nov 2017 · 2 ans 11 mo.",
+    exp_company_3: "Accenture",
     exp_role_3: "Consultant SAP Techno-Fonctionnel",
-    exp_desc_3: "Conseil techno-fonctionnel SAP chez Accenture, faisant le lien entre le développement technique ABAP et l'expertise fonctionnelle.",
-    section_education: "Formation",
+    exp_desc_3: "Conseil techno-fonctionnel SAP chez Accenture, alliant développement technique ABAP et expertise des modules métiers lors de déploiements d'envergure.",
+    section_education: "Formation Académique",
     edu_badge_1: "Postgrade",
-    edu_degree_1: "Méthodes Statistiques & Analytique",
+    edu_degree_1: "Méthodes Statistiques &amp; Analytique",
     edu_institution_1: "Institut indien de statistique (ISI), Calcutta",
     edu_period_1: "Juillet 2024 — Juillet 2025",
     edu_badge_2: "Licence",
     edu_degree_2: "Bachelor of Technology — Informatique",
     edu_institution_2: "Institut de technologie du Bengale (BIT), Calcutta",
     edu_period_2: "2010 — 2014",
-    contact_tagline: "Bâtissons quelque chose d'<em>exceptionnel.</em>",
-    contact_sub: "Sélectionnez vos critères ci-dessous ou écrivez-moi directement.",
+    contact_tagline: "Un projet en tête ? Bâtissons quelque chose d'<em>exceptionnel.</em>",
+    contact_sub: "Disponible pour leadership mobile fractionné, MVPs 0-à-1 et conseil en architecture technique.",
     contact_linkedin: "↗ Profil LinkedIn",
     footer_location: "Calcutta, Inde · Disponible dans le monde entier",
-    footer_desc: "Senior Mobile Engineer · Spécialiste Flutter & Android · Architecte de Solutions"
+    footer_desc: "Architecte Solutions | Kotlin · Spring · Flutter · Python · ERP"
   },
   es: {
     nav_work: "Proyectos",
@@ -239,45 +175,46 @@ const translations = {
     nav_skills: "Stack",
     nav_book_call: "Iniciar Proyecto",
     hero_badge: "Disponible para proyectos · Remoto",
-    hero_headline: "Ingeniería de aplicaciones móviles de producción para startups y empresas.",
-    hero_desc: "Especialista en <strong>Flutter</strong> y <strong>Android nativo (Kotlin & Jetpack Compose)</strong>. Construcción de aplicaciones fluidas de alto rendimiento con arquitectura limpia y backends en la nube.",
+    hero_headline: "Ingeniería de sistemas móviles críticos, soluciones empresariales y productos inteligentes",
+    hero_desc: "Arquitecto de soluciones móviles (Kotlin, KMP, Flutter) con experiencia en ingeniería backend con Spring Boot y FastAPI. Más de 12 años de profundidad técnica en <strong>Android nativo (Kotlin &amp; Jetpack Compose)</strong>, <strong>Flutter</strong>, <strong>Backend</strong>, <strong>Cloud</strong> y consultoría <strong>SAP empresarial</strong>.",
     hero_cta_contact: "Agendar llamada",
     hero_cta_work: "Ver aplicaciones",
     section_work: "Aplicaciones Destacadas",
-    section_services: "Soluciones y Capacidades",
-    section_skills: "Stack Tecnológico",
-    skill_title_flutter: "Móvil — Flutter / Dart",
-    skill_title_android: "Móvil — Android / Kotlin (Nativo)",
-    skill_title_hardware: "Hardware y Sensores",
-    skill_title_backend: "Backend y Automatización",
-    skill_title_payments: "Pagos, Integraciones y Web",
+    section_services: "Soluciones y Capacidades Técnicas",
+    section_skills: "Stack Tecnológico y Herramientas",
+    skill_title_flutter: "Android (Kotlin) y Flutter Móvil",
+    skill_title_ai: "IA y Aprendizaje Automático",
+    skill_title_datascience: "Ciencia de Datos y Análisis Estadístico",
+    skill_title_backend: "Backend, APIs y Nube",
+    skill_title_sap: "SAP y Arquitectura Empresarial",
     skill_title_practices: "Prácticas de Ingeniería y Entrega",
-    section_experience: "Experiencia",
+    section_experience: "Experiencia y Trayectoria",
     exp_date_1: "Jul 2021 — Presente",
     exp_company_1: "Freelance",
-    exp_role_1: "Desarrollador Móvil y Consultor de TI",
-    exp_desc_1: "Consultoría especializada en TI y desarrollo de aplicaciones para startups y clientes corporativos con Flutter y Android (Jetpack Compose).",
+    exp_role_1: "Ingeniero Móvil Senior y Consultor de TI",
+    exp_desc_1: "Consultoría de ingeniería móvil para startups y corporativos. Enfoque primordial en Android nativo con Kotlin y Jetpack Compose, desarrollo multiplataforma con Flutter y microservicios backend robustos con Spring Boot.",
     exp_date_2: "Ene 2018 — Mar 2021 · 3 años 3 meses",
     exp_company_2: "Freelance",
     exp_role_2: "Consultor SAP",
-    exp_desc_2: "Consultoría SAP independiente enfocada en implementación y personalización.",
+    exp_desc_2: "Consultoría SAP independiente enfocada en implementación, personalización y desarrollo ABAP, SAP Mobile y módulos MM y EHS.",
     exp_date_3: "Ene 2015 — Nov 2017 · 2 años 11 meses",
+    exp_company_3: "Accenture",
     exp_role_3: "Consultor Tecno-Funcional SAP",
-    exp_desc_3: "Servicios de consultoría tecno-funcional SAP en Accenture.",
-    section_education: "Educación",
+    exp_desc_3: "Servicios de consultoría tecno-funcional SAP en Accenture, integrando desarrollo ABAP con módulos de negocio en implementaciones a gran escala.",
+    section_education: "Educación y Formación",
     edu_badge_1: "Postgrado",
-    edu_degree_1: "Métodos Estadísticos & Analítica",
+    edu_degree_1: "Métodos Estadísticos &amp; Analítica",
     edu_institution_1: "Instituto de Estadística de la India (ISI), Calcuta",
     edu_period_1: "Julio 2024 — Julio 2025",
     edu_badge_2: "Pregrado",
     edu_degree_2: "Grado en Tecnología — TI",
     edu_institution_2: "Instituto de Tecnología de Bengala (BIT), Calcuta",
     edu_period_2: "2010 — 2014",
-    contact_tagline: "Construyamos algo <em>extraordinario.</em>",
-    contact_sub: "Seleccione sus requerimientos abajo o contácteme directamente.",
+    contact_tagline: "¿Tiene una idea en mente? Construyamos algo <em>extraordinario.</em>",
+    contact_sub: "Disponible para liderazgo móvil fraccional, creación de MVPs 0-a-1 y asesoría en arquitectura técnica.",
     contact_linkedin: "↗ Perfil de LinkedIn",
     footer_location: "Calcuta, India · Disponible a nivel global",
-    footer_desc: "Senior Mobile Engineer · Especialista Flutter y Android · Consultor de Soluciones"
+    footer_desc: "Arquitecto de Soluciones | Kotlin · Spring · Flutter · Python · ERP"
   },
   zh: {
     nav_work: "作品",
@@ -287,31 +224,32 @@ const translations = {
     nav_skills: "技术栈",
     nav_book_call: "发起项目",
     hero_badge: "承接新项目合作 · 全球远程",
-    hero_headline: "为初创团队与企业打造生产级移动端应用程序",
-    hero_desc: "专注 <strong>Flutter</strong> 跨平台与原生 <strong>Android (Kotlin & Jetpack Compose)</strong>。构建清晰架构、高性能流畅体验的移动产品及可扩展云端服务。",
+    hero_headline: "工程化构建关键任务移动系统、企业级解决方案与智能产品",
+    hero_desc: "移动解决方案架构师（Kotlin、KMP、Flutter），具备 Spring Boot 与 FastAPI 后端工程专业能力。拥有 12+ 年技术沉淀，全面覆盖原生 <strong>Android (Kotlin &amp; Jetpack Compose)</strong>、<strong>Flutter</strong>、<strong>后端</strong>、<strong>云计算</strong> 与企业级 <strong>SAP 咨询</strong>。",
     hero_cta_contact: "预约初步沟通",
     hero_cta_work: "查看精选作品",
     section_work: "精选移动应用",
     section_services: "解决方案与工程能力",
     section_skills: "技术栈与工具箱",
-    skill_title_flutter: "移动端 — Flutter / Dart",
-    skill_title_android: "移动端 — Android / Kotlin (原生)",
-    skill_title_hardware: "硬件与传感器",
-    skill_title_backend: "后端与自动化",
-    skill_title_payments: "支付、集成与 Web",
-    skill_title_practices: "工程规范与交付",
-    section_experience: "工作经历",
+    skill_title_flutter: "Android (Kotlin) 与 Flutter 移动端",
+    skill_title_ai: "人工智能与机器学习 (AI/ML)",
+    skill_title_datascience: "数据科学与统计学分析",
+    skill_title_backend: "后端、API 与云架构",
+    skill_title_sap: "SAP 与企业级系统架构",
+    skill_title_practices: "工程规范与交付实践",
+    section_experience: "工作经历与职业履历",
     exp_date_1: "2021年7月 — 至今",
     exp_company_1: "自由职业",
-    exp_role_1: "移动端开发者 & IT 顾问",
-    exp_desc_1: "为初创团队及企业客户提供专业的 IT 咨询与生产级应用解决方案。基于 Flutter 和 Android (Jetpack Compose) 构建具备清晰架构与极致体验的移动方案。",
+    exp_role_1: "资深移动端工程师 &amp; IT 顾问",
+    exp_desc_1: "为初创团队及企业客户提供专业的移动工程与咨询方案。主攻基于 Kotlin 和 Jetpack Compose 的高性能原生 Android 开发，次攻 Flutter 跨平台架构，并提供坚固的 Spring Boot 微服务后端支持。",
     exp_date_2: "2018年1月 — 2021年3月 · 3年3个月",
     exp_company_2: "自由职业",
     exp_role_2: "SAP 顾问",
-    exp_desc_2: "独立开展 SAP 顾问服务，涵盖实施、定制与优化。",
+    exp_desc_2: "独立开展 SAP 顾问服务，涵盖实施、定制与优化，专注 ABAP 开发、SAP Mobile 以及 MM、EHS 业务模块。",
     exp_date_3: "2015年1月 — 2017年11月 · 2年11个月",
+    exp_company_3: "Accenture (埃森哲)",
     exp_role_3: "SAP 技术与业务顾问",
-    exp_desc_3: "在埃森哲提供 SAP 技术与业务双向咨询服务。",
+    exp_desc_3: "在埃森哲提供大型企业级 SAP 顾问服务，融合 ABAP 技术开发与业务模块交付经验。",
     section_education: "教育背景",
     edu_badge_1: "研究生",
     edu_degree_1: "统计学方法与数据分析",
@@ -321,11 +259,11 @@ const translations = {
     edu_degree_2: "工学学士 — 信息技术 (IT)",
     edu_institution_2: "孟加拉理工学院 (BIT)，加尔各答",
     edu_period_2: "2010年 — 2014年",
-    contact_tagline: "让我们携手构建<em>非凡之作</em>。",
-    contact_sub: "在下方选择您的项目需求，或直接与我取得联系。",
+    contact_tagline: "有产品想法？让我们携手构建<em>非凡之作</em>。",
+    contact_sub: "承接兼职移动技术领导、0-to-1 MVP 架构研发以及系统技术咨询。",
     contact_linkedin: "↗ LinkedIn 个人主页",
-    footer_location: "印度，加尔各答 · 面向全球客户",
-    footer_desc: "资深移动工程师 · Flutter & Android 专家 · 解决方案架构师"
+    footer_location: "印度加尔各答 · 面向全球客户",
+    footer_desc: "解决方案架构师 | Kotlin · Spring · Flutter · Python · ERP"
   },
   ja: {
     nav_work: "実績",
@@ -335,31 +273,32 @@ const translations = {
     nav_skills: "技術構成",
     nav_book_call: "プロジェクト相談",
     hero_badge: "新規プロジェクト受付中 · リモート対応",
-    hero_headline: "スタートアップと企業のための本番環境対応モバイルアプリ開発",
-    hero_desc: "<strong>Flutter</strong> および <strong>Android ネイティブ (Kotlin & Jetpack Compose)</strong> に特化。クリーンアーキテクチャと高性能でスムーズなUXを備えたモバイル製品を提供します。",
+    hero_headline: "ミッションクリティカルなモバイルシステム、企業向けソリューション、高機能知能製品の開発",
+    hero_desc: "モバイルソリューションアーキテクト（Kotlin、KMP、Flutter）。Spring BootおよびFastAPIバックエンド開発にも精通。ネイティブ<strong>Android (Kotlin &amp; Jetpack Compose)</strong>、<strong>Flutter</strong>、<strong>バックエンド</strong>、<strong>クラウド</strong>、企業向け<strong>SAPコンサルティング</strong>を網羅する12年以上の技術的厚みを提供。",
     hero_cta_contact: "初回相談を予約する",
     hero_cta_work: "アプリ実績を見る",
     section_work: "注目のモバイルアプリ",
     section_services: "ソリューションと技術能力",
-    section_skills: "技術スタック",
-    skill_title_flutter: "モバイル — Flutter / Dart",
-    skill_title_android: "モバイル — Android / Kotlin (ネイティブ)",
-    skill_title_hardware: "ハードウェア & センサー",
-    skill_title_backend: "バックエンド & 自動化",
-    skill_title_payments: "決済、インテグレーション & Web",
-    skill_title_practices: "エンジニアリング実践 & デリバリー",
-    section_experience: "経歴",
+    section_skills: "技術スタック &amp; ツールキット",
+    skill_title_flutter: "Android (Kotlin) &amp; Flutter モバイル",
+    skill_title_ai: "AI &amp; 機械学習",
+    skill_title_datascience: "データサイエンス &amp; 統計分析",
+    skill_title_backend: "バックエンド、API &amp; クラウド",
+    skill_title_sap: "SAP &amp; エンタープライズ設計",
+    skill_title_practices: "エンジニアリング実践 &amp; デリバリー",
+    section_experience: "経歴 &amp; トラジェクトリ",
     exp_date_1: "2021年7月 — 現在",
     exp_company_1: "フリーランス",
-    exp_role_1: "モバイル開発者 & ITコンサルタント",
-    exp_desc_1: "スタートアップや企業顧客に向けて、FlutterとAndroid（Jetpack Compose）を活用したクリーンアーキテクチャのモバイル開発とITコンサルティングを提供。",
+    exp_role_1: "シニアモバイルエンジニア &amp; ITコンサルタント",
+    exp_desc_1: "スタートアップや企業顧客に向けたモバイルエンジニアリングとITコンサルティング。KotlinとJetpack ComposeによるネイティブAndroid開発を最優先とし、Flutterによるクロスプラットフォーム開発、Spring Bootによる堅牢なバックエンドも提供。",
     exp_date_2: "2018年1月 — 2021年3月 · 3年3ヶ月",
     exp_company_2: "フリーランス",
     exp_role_2: "SAPコンサルタント",
-    exp_desc_2: "SAP環境の導入、カスタマイズ、最適化を担当する独立コンサルティング。",
+    exp_desc_2: "SAP環境の導入、カスタマイズ、最適化を担当する独立コンサルティング。ABAP開発、SAP Mobile、MM・EHSモジュールに特化。",
     exp_date_3: "2015年1月 — 2017年11月 · 2年11ヶ月",
+    exp_company_3: "アクセンチュア",
     exp_role_3: "SAPテクノ・ファンクショナル・コンサルタント",
-    exp_desc_3: "アクセンチュアにて、技術的なABAP開発と業務機能モジュールの専門知識を活かしたコンサルティングを提供。",
+    exp_desc_3: "アクセンチュアにて大規模エンタープライズ導入に参画。技術的ABAP開発と業務機能モジュールを繋ぐコンサルティングを提供。",
     section_education: "学歴",
     edu_badge_1: "大学院・専門課程",
     edu_degree_1: "統計手法＆分析",
@@ -369,11 +308,11 @@ const translations = {
     edu_degree_2: "技術学士 — 情報技術 (IT)",
     edu_institution_2: "ベンガル工科大学 (BIT) コルカタ校",
     edu_period_2: "2010年 — 2014年",
-    contact_tagline: "<em>素晴らしいもの</em>を一緒に作りましょう。",
-    contact_sub: "以下からプロジェクト要件を選択するか、直接お問い合わせください。",
+    contact_tagline: "アプリの構想がありますか？ <em>素晴らしいもの</em>を一緒に作りましょう。",
+    contact_sub: "フラクショナル・リード、0から1のMVP開発、技術アーキテクチャ助言に対応。",
     contact_linkedin: "↗ LinkedIn プロフィール",
     footer_location: "インド、コルカタ · 全世界対応",
-    footer_desc: "シニアモバイルエンジニア · Flutter & Android エキスパート · ソリューションアーキテクト"
+    footer_desc: "ソリューションアーキテクト | Kotlin · Spring · Flutter · Python · ERP"
   },
   ko: {
     nav_work: "프로젝트",
@@ -383,45 +322,46 @@ const translations = {
     nav_skills: "기술스택",
     nav_book_call: "프로젝트 시작",
     hero_badge: "신규 프로젝트 수주 가능 · 글로벌 원격",
-    hero_headline: "스타트업 및 엔터프라이즈를 위한 고성능 모바일 애플리케이션 엔지니어링",
-    hero_desc: "<strong>Flutter</strong> 및 <strong>Android 네이티브 (Kotlin & Jetpack Compose)</strong> 전문. 클린 아키텍처와 뛰어난 고성능 사용자 경험을 갖춘 모바일 제품을 설계 및 배포합니다.",
+    hero_headline: "미션 크리티컬 모바일 시스템, 엔터프라이즈 솔루션 및 지능형 제품 엔지니어링",
+    hero_desc: "모바일 솔루션 아키텍트(Kotlin, KMP, Flutter)이자 Spring Boot 및 FastAPI 백엔드 엔지니어링 전문가입니다. 네이티브 <strong>Android (Kotlin &amp; Jetpack Compose)</strong>, <strong>Flutter</strong>, <strong>백엔드</strong>, <strong>클라우드</strong> 및 엔터프라이즈 <strong>SAP 컨설팅</strong>에 걸친 12년 이상의 깊이 있는 기술 역량을 제공합니다.",
     hero_cta_contact: "디스커버리 미팅 예약",
     hero_cta_work: "앱 포트폴리오 보기",
     section_work: "주요 모바일 프로젝트",
-    section_services: "솔루션 및 역량",
+    section_services: "솔루션 및 엔지니어링 역량",
     section_skills: "기술 스택 및 툴킷",
-    skill_title_flutter: "모바일 — Flutter / Dart",
-    skill_title_android: "모바일 — Android / Kotlin (네이티브)",
-    skill_title_hardware: "하드웨어 및 센서",
-    skill_title_backend: "백엔드 및 자동화",
-    skill_title_payments: "결제, 연동 및 웹",
-    skill_title_practices: "엔지니어링 프랙티스 & 배포",
-    section_experience: "경력",
+    skill_title_flutter: "Android (Kotlin) 및 Flutter 모바일",
+    skill_title_ai: "AI 및 머신러닝",
+    skill_title_datascience: "데이터 사이언스 및 통계 분석",
+    skill_title_backend: "백엔드, API 및 클라우드",
+    skill_title_sap: "SAP 및 엔터프라이즈 아키텍처",
+    skill_title_practices: "엔지니어링 프랙티스 &amp; 배포",
+    section_experience: "경력 및 이력",
     exp_date_1: "2021년 7월 — 현재",
     exp_company_1: "프리랜서",
-    exp_role_1: "모바일 개발자 & IT 컨설턴트",
-    exp_desc_1: "스타트업 및 엔터프라이즈 고객을 위해 Flutter 및 Android(Jetpack Compose) 기반의 클린 아키텍처와 뛰어난 UX를 갖춘 모바일 솔루션 제공.",
+    exp_role_1: "시니어 모바일 엔지니어 &amp; IT 컨설턴트",
+    exp_desc_1: "스타트업 및 엔터프라이즈 고객을 위한 전문 모바일 엔지니어링 및 솔루션 컨설팅. Kotlin 및 Jetpack Compose 기반 고성능 네이티브 Android 개발을 필두로, Flutter 크로스 플랫폼 개발과 Spring Boot 백엔드 마이크로서비스를 통합 제공합니다.",
     exp_date_2: "2018년 1월 — 2021년 3월 · 3년 3개월",
     exp_company_2: "프리랜서",
     exp_role_2: "SAP 컨설턴트",
-    exp_desc_2: "SAP 구축, 커스터마이징 및 최적화 독립 컨설팅.",
+    exp_desc_2: "SAP 환경 구축, 커스터마이징 및 최적화 독립 컨설팅. ABAP 개발, SAP Mobile, MM 및 EHS 모듈 전문.",
     exp_date_3: "2015년 1월 — 2017년 11월 · 2년 11개월",
+    exp_company_3: "액센츄어",
     exp_role_3: "SAP 테크노-펑셔널 컨설턴트",
-    exp_desc_3: "액센츄어에서 기술적 ABAP 개발과 비즈니스 모듈 지식을 연계한 컨설팅 제공.",
-    section_education: "학력",
+    exp_desc_3: "액센츄어에서 대규모 엔터프라이즈 구축 프로젝트 수행. 기술적 ABAP 개발과 비즈니스 모듈 전문성을 결합한 컨설팅 제공.",
+    section_education: "학력 및 교육",
     edu_badge_1: "대학원 과정",
-    edu_degree_1: "통계 방법론 & 분석",
+    edu_degree_1: "통계 방법론 &amp; 분석",
     edu_institution_1: "인도 통계 대학 (ISI), 콜카타",
     edu_period_1: "2024년 7월 — 2025년 7월",
     edu_badge_2: "학사 과정",
     edu_degree_2: "공학사 — 정보기술 (IT)",
     edu_institution_2: "벵골 공과 대학교 (BIT), 콜카타",
     edu_period_2: "2010년 — 2014년",
-    contact_tagline: "함께 <em>놀라운 일</em>을 만들어 봅시다.",
-    contact_sub: "아래에서 프로젝트 요구 사항을 선택하거나 직접 문의해 주세요.",
+    contact_tagline: "새로운 앱 아이디어가 있으신가요? 함께 <em>놀라운 일</em>을 만들어 봅시다.",
+    contact_sub: "파트타임 모바일 리더십, 0-to-1 MVP 개발, 기술 아키텍처 자문 가능.",
     contact_linkedin: "↗ LinkedIn 프로필",
     footer_location: "인도 콜카타 · 전 세계 원격 가능",
-    footer_desc: "시니어 모바일 엔지니어 · Flutter & Android 스페셜리스트 · 솔루션 아키텍트"
+    footer_desc: "솔루션 아키텍트 | Kotlin · Spring · Flutter · Python · ERP"
   }
 };
 
@@ -490,131 +430,29 @@ if (savedLang !== 'en') {
   setLanguage(savedLang);
 }
 
-// ==================== K2 FISHERIES INTERACTIVE SCREENSHOT GALLERY ====================
-function initK2Gallery() {
-  const tabs = document.querySelectorAll('.k2-tab');
-  const thumbs = document.querySelectorAll('.k2-thumb-card');
-  const slides = document.querySelectorAll('.k2-deck-item');
-
+// ==================== INTERACTIVE SCREENSHOT GALLERY ====================
+function initScreenGallery(tabClass, slideClass, dataAttr) {
+  const tabs = document.querySelectorAll(tabClass);
+  const slides = document.querySelectorAll(slideClass);
   if (!tabs.length || !slides.length) return;
-
-  function switchScreen(screenId) {
-    tabs.forEach(t => {
-      const isMatch = t.getAttribute('data-k2-screen') === screenId;
-      t.classList.toggle('active', isMatch);
-      t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-    });
-
-    thumbs.forEach(th => {
-      const isMatch = th.getAttribute('data-k2-target') === screenId;
-      th.classList.toggle('active', isMatch);
-    });
-
-    slides.forEach(s => {
-      const isMatch = s.getAttribute('data-screen-id') === screenId;
-      s.classList.toggle('active', isMatch);
-    });
-  }
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-k2-screen');
-      if (target) switchScreen(target);
-    });
-  });
-
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const target = thumb.getAttribute('data-k2-target');
-      if (target) switchScreen(target);
+      const target = tab.getAttribute(dataAttr);
+      if (!target) return;
+      tabs.forEach(t => {
+        const isMatch = t.getAttribute(dataAttr) === target;
+        t.classList.toggle('active', isMatch);
+        t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
+      });
+      slides.forEach(s => {
+        const isMatch = s.getAttribute('data-screen-id') === target;
+        s.classList.toggle('active', isMatch);
+      });
     });
   });
 }
 
-initK2Gallery();
-
-// ==================== AQUAPLAYER INTERACTIVE SCREENSHOT GALLERY ====================
-function initAquaGallery() {
-  const tabs = document.querySelectorAll('.aqua-tab');
-  const thumbs = document.querySelectorAll('.aqua-thumb-card');
-  const slides = document.querySelectorAll('.aqua-deck-item');
-
-  if (!tabs.length || !slides.length) return;
-
-  function switchScreen(screenId) {
-    tabs.forEach(t => {
-      const isMatch = t.getAttribute('data-aqua-screen') === screenId;
-      t.classList.toggle('active', isMatch);
-      t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-    });
-
-    thumbs.forEach(th => {
-      const isMatch = th.getAttribute('data-aqua-target') === screenId;
-      th.classList.toggle('active', isMatch);
-    });
-
-    slides.forEach(s => {
-      const isMatch = s.getAttribute('data-screen-id') === screenId;
-      s.classList.toggle('active', isMatch);
-    });
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-aqua-screen');
-      if (target) switchScreen(target);
-    });
-  });
-
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const target = thumb.getAttribute('data-aqua-target');
-      if (target) switchScreen(target);
-    });
-  });
-}
-
-initAquaGallery();
- 
-// ==================== VIOM INTERACTIVE SCREENSHOT GALLERY ====================
-function initViomGallery() {
-  const tabs = document.querySelectorAll('.viom-tab');
-  const thumbs = document.querySelectorAll('.viom-thumb-card');
-  const slides = document.querySelectorAll('.viom-deck-item');
-
-  if (!tabs.length || !slides.length) return;
-
-  function switchScreen(screenId) {
-    tabs.forEach(t => {
-      const isMatch = t.getAttribute('data-viom-screen') === screenId;
-      t.classList.toggle('active', isMatch);
-      t.setAttribute('aria-selected', isMatch ? 'true' : 'false');
-    });
-
-    thumbs.forEach(th => {
-      const isMatch = th.getAttribute('data-viom-target') === screenId;
-      th.classList.toggle('active', isMatch);
-    });
-
-    slides.forEach(s => {
-      const isMatch = s.getAttribute('data-screen-id') === screenId;
-      s.classList.toggle('active', isMatch);
-    });
-  }
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      const target = tab.getAttribute('data-viom-screen');
-      if (target) switchScreen(target);
-    });
-  });
-
-  thumbs.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const target = thumb.getAttribute('data-viom-target');
-      if (target) switchScreen(target);
-    });
-  });
-}
-
-initViomGallery();
+initScreenGallery('.k2-tab', '.k2-deck-item', 'data-k2-screen');
+initScreenGallery('.aqua-tab', '.aqua-deck-item', 'data-aqua-screen');
+initScreenGallery('.viom-tab', '.viom-deck-item', 'data-viom-screen');
